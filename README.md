@@ -5,7 +5,7 @@ Professional bioinformatics portfolio project: WGS analysis of Mycobacterium tub
 
 ## Overview
 
-This repository showcases an end-to-end bioinformatics workflow for the analysis of **Mycobacterium tuberculosis whole genome sequencing (WGS)** data using publicly available sequencing datasets.
+This project was initially developed following a microbial genomics training module and subsequently extended with independent downstream analysis using TBProfiler for lineage determination and antimicrobial resistance prediction.
 
 The project demonstrates practical skills in:
 
