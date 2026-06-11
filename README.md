@@ -20,6 +20,7 @@ The project demonstrates practical skills in:
 * Lineage determination (TB Profiler)
 * Genomic data interpretation
 * Reproducible bioinformatics workflows
+
 This repository was developed as a professional bioinformatics portfolio project.
 
 ---
