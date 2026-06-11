@@ -1,6 +1,3 @@
-# tb-wgs-bioinformatics-pipeline
-Professional bioinformatics portfolio project: WGS analysis of Mycobacterium tuberculosis for lineage determination and antimicrobial resistance prediction.
-
 # Mycobacterium tuberculosis WGS Bioinformatics Pipeline
 
 ## Overview
@@ -119,7 +116,7 @@ Lineage      Drug Resistance
 
 ## Repository Structure
 
-```text
+```
 tb-wgs-bioinformatics-pipeline/
 │
 ├── README.md
