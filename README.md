@@ -9,15 +9,17 @@ The project was developed through a hands-on microbial genomics training workflo
 The project demonstrates practical skills in:
 
 * Linux command-line bioinformatics
-* Quality control of NGS data
-* Read trimming and preprocessing
-* Reference-based genome mapping
-* Variant calling
-* Drug resistance prediction
-* Lineage determination
+* Data retrieval from NCBI SRA
+* Quality control (FastQC)
+* Read preprocessing (fastp)
+* Reference-based mapping (BWA)
+* BAM processing (SAMtools)
+* Variant calling (FreeBayes)
+* Variant annotation (snpEff)
+* Drug resistance prediction (Tb Profiler)
+* Lineage determination (TB Profiler)
 * Genomic data interpretation
 * Reproducible bioinformatics workflows
-
 This repository was developed as a professional bioinformatics portfolio project.
 
 ---
@@ -27,10 +29,9 @@ This repository was developed as a professional bioinformatics portfolio project
 The main objectives of this project are:
 
 1. Perform WGS analysis of *Mycobacterium tuberculosis*.
-2. Determine phylogenetic lineage.
-3. Identify genomic variants associated with antimicrobial resistance.
-4. Classify drug-resistance profile based on WHO-associated mutations.
-5. Demonstrate practical bioinformatics skills relevant to microbial genomics and infectious disease research.
+2. Demonstrate practical bioinformatics skills relevant to microbial genomics and infectious disease investigation.
+3. Identify genomic variants.
+4. Determine phylogenetic lineage and predict drug-resistance profile.
 
 ---
 
