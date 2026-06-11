@@ -4,7 +4,7 @@
 
 This repository demonstrates an end-to-end whole genome sequencing (WGS) analysis workflow for *Mycobacterium tuberculosis* using publicly available Illumina sequencing data from the NCBI Sequence Read Archive (SRA).
 
-The project was developed through a hands-on microbial genomics training workflow and extended with independent downstream analysis using TBProfiler for lineage determination and antimicrobial resistance prediction.
+The project was developed through a hands-on microbial genomics training workflow (by INBIO Indonesia on June 2026) and extended with independent downstream analysis using TBProfiler for lineage determination and antimicrobial resistance prediction.
 
 This project demonstrates practical bioinformatics competencies in:
 
@@ -27,9 +27,8 @@ This project demonstrates practical bioinformatics competencies in:
 1. Perform WGS analysis of *Mycobacterium tuberculosis* from raw sequencing data.
 2. Assess sequencing quality and preprocessing performance.
 3. Identify genomic variants relative to the H37Rv reference genome.
-4. Determine phylogenetic lineage.
-5. Predict antimicrobial resistance-associated mutations.
-6. Demonstrate reproducible microbial genomics workflows for portfolio purposes.
+4. Predict phylogenetic lineage and antimicrobial resistance-associated mutations.
+5. Demonstrate reproducible microbial genomics workflows for portfolio purposes.
 
 ---
 
@@ -49,12 +48,9 @@ Public sequencing data were obtained from the NCBI Sequence Read Archive (SRA).
 
 # Bioinformatics Workflow
 
-```text
-NCBI SRA
-    │
-    ▼
+```
 Data Retrieval
-(SRA Toolkit)
+(SRA from NCBI)
     │
     ▼
 Quality Control
@@ -88,7 +84,7 @@ Variant Annotation
 TBProfiler
     │
  ┌──┴─────────────┐
- ▼               ▼
+ ▼                ▼
 Lineage      Drug Resistance
 Analysis     Prediction
 ```
@@ -113,7 +109,7 @@ Analysis     Prediction
 
 # Repository Structure
 
-```text
+```
 tb-wgs-bioinformatics-pipeline/
 │
 ├── README.md
@@ -257,30 +253,17 @@ The isolate belongs to the globally distributed Euro-American lineage.
 
 ---
 
-### Predicted Resistant Drugs
+### Predicted Resistant Drugs and Resistance-Associated Mutasions
 
-| Drug | Prediction |
-|----------|----------|
-| Rifampicin | Resistant |
-| Rifapentine | Resistant |
-| Isoniazid | Resistant |
-| Ethambutol | Resistant |
-| Pyrazinamide | Resistant |
-| Streptomycin | Resistant |
-| Para-aminosalicylic acid | Resistant |
-
----
-
-### Resistance-Associated Mutations
-
-| Gene | Mutation | Associated Drug |
-|----------|----------|----------|
-| rpoB | Ser450Leu | Rifampicin / Rifapentine |
-| katG | Ser315Thr | Isoniazid |
-| embB | Met306Ile | Ethambutol |
-| pncA | c.454delG | Pyrazinamide |
-| rpsL | Lys43Arg | Streptomycin |
-| folC | Glu40Gln | PAS |
+| Drug | Prediction | Gene | Mutation |
+|----------|----------|----------|----------|
+| Rifampicin | Resistant | rpoB | Ser450Leu |
+| Rifapentine | Resistant | rpoB | Ser450Leu | Rifampicin / Rifapentine |
+| Isoniazid | Resistant | katG | Ser315Thr |
+| Ethambutol | Resistant | embB | Met306Ile | Ethambutol |
+| Pyrazinamide | Resistant | pncA | c.454delG |
+| Streptomycin | Resistant | rpsL | Lys43Arg |
+| Para-aminosalicylic acid | Resistant | folC | Glu40Gln |
 
 ---
 
@@ -368,6 +351,6 @@ Research interests:
 
 # Disclaimer
 
-This repository is intended for educational and professional portfolio purposes.
+This repository is intended for professional portfolio purposes.
 
 All sequencing data originate from publicly available repositories. Biological and clinical conclusions should be validated using complementary laboratory and epidemiological information.
