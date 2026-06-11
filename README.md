@@ -5,7 +5,9 @@ Professional bioinformatics portfolio project: WGS analysis of Mycobacterium tub
 
 ## Overview
 
-This project was initially developed following a microbial genomics training module and subsequently extended with independent downstream analysis using TBProfiler for lineage determination and antimicrobial resistance prediction.
+This repository demonstrates an end-to-end whole genome sequencing (WGS) analysis workflow for Mycobacterium tuberculosis using publicly available Illumina sequencing data from the NCBI Sequence Read Archive (SRA).
+
+The project was developed through a hands-on microbial genomics training workflow and extended with independent downstream analysis using TBProfiler for lineage determination and antimicrobial resistance prediction.
 
 The project demonstrates practical skills in:
 
@@ -50,45 +52,68 @@ Public sequencing data were obtained from the NCBI Sequence Read Archive (SRA).
 
 ## Bioinformatics Workflow
 
-```text
-Raw FASTQ
+```
+NCBI SRA
     │
     ▼
-Quality Control (FastQC)
+FASTQ Retrieval
+(SRA Toolkit)
     │
     ▼
-Read Trimming (Trimmomatic)
+Quality Control
+(FastQC)
     │
     ▼
-Reference Mapping (BWA)
+Read Cleaning
+(fastp)
     │
     ▼
-BAM Processing (SAMtools)
+Reference Mapping
+(BWA)
     │
     ▼
-Variant Calling (FreeBayes)
+SAM → BAM
+(SAMtools)
+    │
+    ▼
+Sorting & Indexing
+(SAMtools)
+    │
+    ▼
+Variant Calling
+(FreeBayes)
+    │
+    ▼
+Variant Filtering
+(bcftools)
+    │
+    ▼
+Variant Annotation
+(SnpEff)
     │
     ▼
 TBProfiler Analysis
     │
- ┌──┴─────────────┐
- ▼                ▼
-Lineage       Drug Resistance
-Analysis      Prediction
+ ┌──┴──────────────┐
+ ▼                 ▼
+Lineage      Drug Resistance
 ```
 
 ---
 
 ## Software
 
-| Software    | Version |
-| ----------- | ------- |
-| FastQC      | latest  |
-| Trimmomatic | 0.39    |
-| BWA         | 0.7.17  |
-| SAMtools    | 1.18    |
-| FreeBayes   | 1.3.6   |
-| TBProfiler  | 6.7.0   |
+| Software       | Version |
+|----------------|---------|
+| Conda          | 26.3.2  |
+| SRA Toolkit    | 3.4.1   |
+| FastQC         | 0.12.1  |
+| fastp          | 1.3.3   |
+| BWA            | 0.7.19  |
+| SAMtools       | 1.23.1  |
+| FreeBayes      | 1.3.8   |
+| SnpEff         | 5.4c    |
+| TBProfiler Web | 6.7.0   |
 
 ---
 
@@ -102,30 +127,33 @@ tb-wgs-bioinformatics-pipeline/
 ├── data/
 │   └── sample_metadata.csv
 │
-├── workflow/
-│   └── workflow_diagram.png
-│
-├── scripts/
-│   ├── fastqc.sh
-│   ├── trimming.sh
-│   ├── bwa_mapping.sh
-│   ├── variant_calling.sh
-│   └── tbprofiler.sh
-│
-├── results/
-│   ├── qc/
-│   ├── lineage/
-│   ├── resistance/
-│   ├── variants/
-│   └── figures/
-│
 ├── docs/
-│   ├── methods.md
 │   ├── interpretation.md
+│   ├── methods.md
 │   └── portfolio_summary.md
 │
+├── workflow/
+│   ├── workflow_diagram.png
+│   └── analysis_pipeline.md
+│
+├── scripts/
+│   ├── mission01_data_preparation.sh
+│   ├── mission02_mapping.sh
+│   ├── mission03_bam_processing.sh
+│   └── mission04_variant_calling.sh
+│
+├── results/
+│   ├── resistance/
+│   │   └── tbprofiler_report.txt
+│   │
+│   ├── variants/
+│   │   ├── variants_filtered.vcf
+│   │   └── variants_annotated.vcf
+│   │
+│   └── figures/
+│
 └── environment/
-    └── environment.yml
+    └── software_versions.md
 ```
 
 ---
@@ -213,27 +241,30 @@ These findings suggest that several WHO-recommended second-line drugs may remain
 
 ### Bioinformatics
 
-* NGS data processing
-* Genome mapping
+* NGS quality assessment
+* Read preprocessing
+* Reference genome mapping
 * Variant calling
-* Microbial genomics
-* Antimicrobial resistance analysis
-* WGS interpretation
+* Variant filtering
+* Variant normalization
+* Variant annotation
+* Antimicrobial resistance prediction
+* Tuberculosis genomics
 
 ### Computational
 
-* Linux
-* Bash scripting
-* Conda environments
-* Reproducible workflows
-* Data management
+* Linux command line
+* Bash workflow execution
+* Conda environment management
+* Reproducible bioinformatics analysis
+* Genomic data handling
 
 ### Biological
 
-* Tuberculosis genomics
+* Mycobacterium tuberculosis genomics
 * Drug resistance mechanisms
 * Molecular epidemiology
-* Genomic surveillance
+* Public sequencing data analysis
 
 ---
 
