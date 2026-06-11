@@ -2,60 +2,58 @@
 
 ## Overview
 
-This repository demonstrates an end-to-end whole genome sequencing (WGS) analysis workflow for Mycobacterium tuberculosis using publicly available Illumina sequencing data from the NCBI Sequence Read Archive (SRA).
+This repository demonstrates an end-to-end whole genome sequencing (WGS) analysis workflow for *Mycobacterium tuberculosis* using publicly available Illumina sequencing data from the NCBI Sequence Read Archive (SRA).
 
-The project was developed through a hands-on microbial genomics training workflow (by INBIO) and extended with independent downstream analysis using TBProfiler for lineage determination and antimicrobial resistance prediction.
+The project was developed through a hands-on microbial genomics training workflow and extended with independent downstream analysis using TBProfiler for lineage determination and antimicrobial resistance prediction.
 
-The project demonstrates practical skills in:
+This project demonstrates practical bioinformatics competencies in:
 
-* Linux command-line bioinformatics
-* Data retrieval from NCBI SRA
-* Quality control (FastQC)
-* Read preprocessing (fastp)
-* Reference-based mapping (BWA)
-* BAM processing (SAMtools)
-* Variant calling (FreeBayes)
-* Variant annotation (snpEff)
-* Drug resistance prediction (Tb Profiler)
-* Lineage determination (TB Profiler)
-* Genomic data interpretation
-* Reproducible bioinformatics workflows
-
-This repository was developed as a professional bioinformatics portfolio project.
+- Linux command-line bioinformatics
+- NCBI SRA data retrieval
+- Sequence quality assessment
+- Read preprocessing and trimming
+- Reference-based genome mapping
+- BAM processing and alignment statistics
+- Variant calling and filtering
+- Variant annotation
+- Tuberculosis lineage determination
+- Antimicrobial resistance prediction
+- Genomic data interpretation
 
 ---
 
-## Project Objectives
+# Project Objectives
 
-The main objectives of this project are:
-
-1. Perform WGS analysis of *Mycobacterium tuberculosis*.
-2. Demonstrate practical bioinformatics skills relevant to microbial genomics and infectious disease investigation.
-3. Identify genomic variants.
-4. Determine phylogenetic lineage and predict drug-resistance profile.
+1. Perform WGS analysis of *Mycobacterium tuberculosis* from raw sequencing data.
+2. Assess sequencing quality and preprocessing performance.
+3. Identify genomic variants relative to the H37Rv reference genome.
+4. Determine phylogenetic lineage.
+5. Predict antimicrobial resistance-associated mutations.
+6. Demonstrate reproducible microbial genomics workflows for portfolio purposes.
 
 ---
 
-## Dataset
+# Dataset
 
 Public sequencing data were obtained from the NCBI Sequence Read Archive (SRA).
 
-| Item                | Description                      |
-| ------------------- | ---------------------------------|
-| Organism            | Mycobacterium tuberculosis       |
-| Sequencing platform | Illumina                         |
-| Data source         | NCBI SRA (Acc. Numb. SRR37582408)|
-| Analysis type       | Whole Genome Sequencing (WGS)    |
+| Item | Description |
+|--------|--------|
+| Organism | *Mycobacterium tuberculosis* |
+| SRA Accession | SRR37582408 |
+| Sequencing Platform | Illumina |
+| Analysis Type | Whole Genome Sequencing (WGS) |
+| Reference Genome | H37Rv (NC_000962.3) |
 
 ---
 
-## Bioinformatics Workflow
+# Bioinformatics Workflow
 
-```
+```text
 NCBI SRA
     │
     ▼
-FASTQ Retrieval
+Data Retrieval
 (SRA Toolkit)
     │
     ▼
@@ -68,14 +66,10 @@ Read Cleaning
     │
     ▼
 Reference Mapping
-(BWA)
+(BWA-MEM)
     │
     ▼
-SAM → BAM
-(SAMtools)
-    │
-    ▼
-Sorting & Indexing
+SAM/BAM Processing
 (SAMtools)
     │
     ▼
@@ -91,34 +85,35 @@ Variant Annotation
 (SnpEff)
     │
     ▼
-TBProfiler Analysis
+TBProfiler
     │
- ┌──┴──────────────┐
- ▼                 ▼
+ ┌──┴─────────────┐
+ ▼               ▼
 Lineage      Drug Resistance
+Analysis     Prediction
 ```
 
 ---
 
-## Software
+# Software Environment
 
-| Software       | Version |
-|----------------|---------|
-| Conda          | 26.3.2  |
-| SRA Toolkit    | 3.4.1   |
-| FastQC         | 0.12.1  |
-| fastp          | 1.3.3   |
-| BWA            | 0.7.19  |
-| SAMtools       | 1.23.1  |
-| FreeBayes      | 1.3.8   |
-| SnpEff         | 5.4c    |
-| TBProfiler Web | 6.7.0   |
+| Software | Version |
+|-----------|-----------|
+| Conda | 26.3.2 |
+| SRA Toolkit | 3.4.1 |
+| FastQC | 0.12.1 |
+| fastp | 1.3.3 |
+| BWA | 0.7.19 |
+| SAMtools | 1.23.1 |
+| FreeBayes | 1.3.8 |
+| SnpEff | 5.4c |
+| TBProfiler Web | 6.7.0 |
 
 ---
 
-## Repository Structure
+# Repository Structure
 
-```
+```text
 tb-wgs-bioinformatics-pipeline/
 │
 ├── README.md
@@ -138,7 +133,7 @@ tb-wgs-bioinformatics-pipeline/
 ├── scripts/
 │   ├── mission01_data_preparation.sh
 │   ├── mission02_mapping.sh
-│   ├── mission03_bam_processing.sh
+│   ├── mission03_converting_shorting.sh
 │   └── mission04_variant_calling.sh
 │
 ├── results/
@@ -157,130 +152,204 @@ tb-wgs-bioinformatics-pipeline/
 
 ---
 
-## Key Results
+# Sequencing Quality Assessment
 
-### Lineage Identification
+## Raw Reads
 
-| Feature              | Result                 |
-| -------------------- | ---------------------- |
-| Major Lineage        | Lineage 4              |
-| Sublineage           | 4.1.1.3                |
-| Family               | Euro-American (X-type) |
-| Region of Difference | RD193                  |
-
-Interpretation:
-
-The isolate belongs to the Euro-American lineage, one of the globally distributed *M. tuberculosis* lineages frequently reported across multiple continents.
+| Metric | Read 1 | Read 2 |
+|----------|----------|----------|
+| Total Sequences | 1,050,097 | 1,050,097 |
+| GC Content | 65% | 65% |
+| Per Base Quality | Pass | Pass |
+| Adapter Content | Pass | Pass |
+| Sequence Length Distribution | Warning | Warning |
+| Per Sequence GC Content | Pass | Warning |
 
 ---
 
-### Drug Resistance Profile
+## fastp Preprocessing Summary
 
-| Drug                     | Prediction |
-| ------------------------ | ---------- |
-| Rifampicin               | Resistant  |
-| Isoniazid                | Resistant  |
-| Ethambutol               | Resistant  |
-| Pyrazinamide             | Resistant  |
-| Streptomycin             | Resistant  |
-| Para-aminosalicylic acid | Resistant  |
+| Metric | Before | After |
+|----------|----------|----------|
+| Total Reads | 2,100,194 | 2,022,114 |
+| Reads Passed Filter | - | 96.28% |
+| GC Content | 65.18% | 65.17% |
+| Q20 | 95.54% | 96.65% |
+| Q30 | 88.84% | 90.83% |
+| Adapter Content | Present | ~0% |
 
-Overall classification:
+The preprocessing step improved overall read quality while retaining more than 96% of sequencing reads.
+
+---
+
+# Mapping Statistics
+
+Reference genome:
+
+**Mycobacterium tuberculosis H37Rv (NC_000962.3)**
+
+## Alignment Summary
+
+| Metric | Value |
+|----------|----------|
+| Total Reads | 2,025,128 |
+| Mapped Reads | 2,004,332 |
+| Mapping Rate | 98.97% |
+| Properly Paired Reads | 1,983,768 |
+| Properly Paired Rate | 98.10% |
+| Singletons | 13,176 |
+
+---
+
+## Coverage Statistics
+
+| Metric | Value |
+|----------|----------|
+| Genome Size | 4,411,532 bp |
+| Covered Bases | 4,386,945 bp |
+| Genome Coverage | 99.44% |
+| Mean Depth | 66.86× |
+| Mean Mapping Quality | 59.4 |
+
+The high mapping rate and genome coverage indicate excellent sequencing quality and suitability for downstream variant analysis.
+
+---
+
+# Variant Calling Results
+
+## Variant Summary
+
+A total of **1,147 genomic variants** were identified relative to the H37Rv reference genome.
+
+| Variant Type | Count |
+|-------------|---------|
+| SNP | 988 |
+| MNP | 68 |
+| Insertions | 38 |
+| Deletions | 47 |
+| Mixed Variants | 6 |
+| Total | 1,147 |
+
+Variants were identified using FreeBayes and annotated using SnpEff.
+
+---
+
+# TBProfiler Results
+
+## Lineage Identification
+
+| Feature | Result |
+|----------|----------|
+| Major Lineage | Lineage 4 |
+| Sublineage | 4.1.1.3 |
+| Family | Euro-American (X-type) |
+| Region of Difference | RD193 |
+
+The isolate belongs to the globally distributed Euro-American lineage.
+
+---
+
+## Drug Resistance Classification
+
+### Overall Classification
 
 **MDR-TB (Multidrug Resistant Tuberculosis)**
 
 ---
 
-### Resistance-Associated Mutations
+### Predicted Resistant Drugs
 
-| Gene | Mutation  | Associated Drug |
-| ---- | --------- | --------------- |
-| rpoB | Ser450Leu | Rifampicin      |
-| katG | Ser315Thr | Isoniazid       |
-| embB | Met306Ile | Ethambutol      |
-| pncA | 454delG   | Pyrazinamide    |
-| rpsL | Lys43Arg  | Streptomycin    |
-| folC | Glu40Gln  | PAS             |
+| Drug | Prediction |
+|----------|----------|
+| Rifampicin | Resistant |
+| Rifapentine | Resistant |
+| Isoniazid | Resistant |
+| Ethambutol | Resistant |
+| Pyrazinamide | Resistant |
+| Streptomycin | Resistant |
+| Para-aminosalicylic acid | Resistant |
 
 ---
 
-### Coverage Metrics
+### Resistance-Associated Mutations
 
-| Metric                | Value |
-| --------------------- | ----- |
-| Median Depth          | 58X   |
-| Genome Coverage       | High  |
-| Lineage Confidence    | High  |
-| Resistance Confidence | High  |
+| Gene | Mutation | Associated Drug |
+|----------|----------|----------|
+| rpoB | Ser450Leu | Rifampicin / Rifapentine |
+| katG | Ser315Thr | Isoniazid |
+| embB | Met306Ile | Ethambutol |
+| pncA | c.454delG | Pyrazinamide |
+| rpsL | Lys43Arg | Streptomycin |
+| folC | Glu40Gln | PAS |
 
 ---
 
 ## Biological Interpretation
 
-The analyzed isolate was classified as MDR-TB due to the presence of canonical resistance mutations in both:
+The isolate fulfills the genomic criteria for MDR-TB due to the presence of canonical resistance-conferring mutations in:
 
-* rpoB (Rifampicin resistance)
-* katG (Isoniazid resistance)
+- rpoB (Rifampicin resistance)
+- katG (Isoniazid resistance)
 
-Additional mutations associated with resistance to Ethambutol, Pyrazinamide, Streptomycin, and PAS were also detected.
+Additional resistance-associated mutations affecting Ethambutol, Pyrazinamide, Streptomycin, and PAS were detected.
 
-No confirmed resistance-associated mutations were detected for:
+No confirmed resistance mutations were identified for:
 
-* Fluoroquinolones
-* Bedaquiline
-* Linezolid
-* Delamanid
-* Pretomanid
+- Fluoroquinolones
+- Bedaquiline
+- Linezolid
+- Delamanid
+- Pretomanid
 
-These findings suggest that several WHO-recommended second-line drugs may remain effective.
-
----
-
-## Skills Demonstrated
-
-### Bioinformatics
-
-* NGS quality assessment
-* Read preprocessing
-* Reference genome mapping
-* Variant calling
-* Variant filtering
-* Variant normalization
-* Variant annotation
-* Antimicrobial resistance prediction
-* Tuberculosis genomics
-
-### Computational
-
-* Linux command line
-* Bash workflow execution
-* Conda environment management
-* Reproducible bioinformatics analysis
-* Genomic data handling
-
-### Biological
-
-* Mycobacterium tuberculosis genomics
-* Drug resistance mechanisms
-* Molecular epidemiology
-* Public sequencing data analysis
+These findings suggest potential susceptibility to several WHO-recommended second-line anti-tuberculosis drugs.
 
 ---
 
-## Future Improvements
+# Skills Demonstrated
 
-Potential extensions of this project include:
+## Bioinformatics
 
-* Phylogenomic analysis
-* SNP distance analysis
-* Comparative genomics
-* Resistome characterization
-* Virulome characterization
-* Interactive workflow automation using Snakemake or Nextflow
+- NGS quality assessment
+- Read preprocessing
+- Reference-based genome mapping
+- BAM processing
+- Variant calling
+- Variant filtering
+- Variant annotation
+- AMR prediction
+- Tuberculosis genomics
+
+## Computational
+
+- Linux command line
+- Bash workflow execution
+- Conda environment management
+- Reproducible analysis
+- Genomic data handling
+
+## Biological
+
+- *Mycobacterium tuberculosis* genomics
+- Antimicrobial resistance mechanisms
+- Molecular epidemiology
+- Public sequencing data analysis
 
 ---
 
-## Author
+# Future Extensions
+
+Potential future analyses include:
+
+- Phylogenomic reconstruction
+- SNP distance analysis
+- Comparative genomics
+- Resistome profiling
+- Virulome characterization
+- Workflow automation using Snakemake or Nextflow
+
+---
+
+# Author
 
 **Dr. drh. Ferdinand Prayogo Cahyo Santoso**
 
@@ -288,17 +357,17 @@ Veterinarian | Microbiologist | Bioinformatics Enthusiast
 
 Research interests:
 
-* Microbial genomics
-* Antimicrobial resistance
-* Veterinary microbiology
-* Virology
-* Immunology
-* Computational biology
+- Microbial genomics
+- Antimicrobial resistance
+- Veterinary microbiology
+- Virology
+- Immunology
+- Computational biology
 
 ---
 
-## Disclaimer
+# Disclaimer
 
-This repository is intended for educational and portfolio purposes only.
+This repository is intended for educational and professional portfolio purposes.
 
-The analyzed sequencing data originate from publicly available datasets and all biological interpretations should be validated using complementary laboratory and clinical information.
+All sequencing data originate from publicly available repositories. Biological and clinical conclusions should be validated using complementary laboratory and epidemiological information.
