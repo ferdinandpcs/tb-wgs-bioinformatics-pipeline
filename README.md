@@ -7,7 +7,7 @@ Professional bioinformatics portfolio project: WGS analysis of Mycobacterium tub
 
 This repository demonstrates an end-to-end whole genome sequencing (WGS) analysis workflow for Mycobacterium tuberculosis using publicly available Illumina sequencing data from the NCBI Sequence Read Archive (SRA).
 
-The project was developed through a hands-on microbial genomics training workflow and extended with independent downstream analysis using TBProfiler for lineage determination and antimicrobial resistance prediction.
+The project was developed through a hands-on microbial genomics training workflow (by INBIO) and extended with independent downstream analysis using TBProfiler for lineage determination and antimicrobial resistance prediction.
 
 The project demonstrates practical skills in:
 
