@@ -88,6 +88,7 @@ TBProfiler
 Lineage      Drug Resistance
 Analysis     Prediction
 ```
+<img width="2816" height="1536" alt="Gemini_Generated_Image_hr7yrbhr7yrbhr7y" src="https://github.com/user-attachments/assets/0882d929-4744-42ac-b2ba-7ffbb4f48647" />
 
 ---
 
