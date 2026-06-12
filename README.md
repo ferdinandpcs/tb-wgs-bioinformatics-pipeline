@@ -50,6 +50,10 @@ Public sequencing data were obtained from the NCBI Sequence Read Archive (SRA).
 
 <img width="2816" height="1536" alt="workflow" src="https://github.com/user-attachments/assets/6476bc29-2ff5-4046-8e44-dbecca6a3155" />
 
+**Figure 1. End-to-End Bioinformatics Pipeline for Whole Genome Sequencing (WGS) Analysis of *Mycobacterium tuberculosis*.** The diagram illustrates the systematic workflow executed in this project:
+1. **Data Retrieval & Preprocessing:** Retrieval of raw reads from NCBI SRA (SRR37582408), followed by quality assessment using FastQC and read trimming via fastp.
+2. **Alignment & Variant Detection:** Reference-based genome mapping against *M. tuberculosis* H37Rv (NC_000962.3) using BWA-MEM, processing with SAMtools, variant calling via FreeBayes, filtering with bcftools, and functional annotation using SnpEff.
+3. **Extended Analysis:** Lineage identification (Lineage 4.1.1.3 Euro-American) and antimicrobial resistance prediction (MDR-TB status characterized by key mutations including *rpoB* Ser450Leu and *katG* Ser315Thr) using TBProfiler.
 ---
 
 # Software Environment
