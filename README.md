@@ -49,46 +49,7 @@ Public sequencing data were obtained from the NCBI Sequence Read Archive (SRA).
 # Bioinformatics Workflow
 
 ```
-Data Retrieval
-(SRA from NCBI)
-    │
-    ▼
-Quality Control
-(FastQC)
-    │
-    ▼
-Read Cleaning
-(fastp)
-    │
-    ▼
-Reference Mapping
-(BWA-MEM)
-    │
-    ▼
-SAM/BAM Processing
-(SAMtools)
-    │
-    ▼
-Variant Calling
-(FreeBayes)
-    │
-    ▼
-Variant Filtering
-(bcftools)
-    │
-    ▼
-Variant Annotation
-(SnpEff)
-    │
-    ▼
-TBProfiler
-    │
- ┌──┴─────────────┐
- ▼                ▼
-Lineage      Drug Resistance
-Analysis     Prediction
-```
-<img width="2816" height="1536" alt="Gemini_Generated_Image_hr7yrbhr7yrbhr7y" src="https://github.com/user-attachments/assets/0882d929-4744-42ac-b2ba-7ffbb4f48647" />
+<img width="2816" height="1536" alt="workflow" src="https://github.com/user-attachments/assets/0882d929-4744-42ac-b2ba-7ffbb4f48647" />
 
 ---
 
