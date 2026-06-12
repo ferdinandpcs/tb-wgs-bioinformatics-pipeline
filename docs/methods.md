@@ -339,7 +339,7 @@ A total of 1,147 variants were identified.
 
 ---
 
-# Bonus Analysis – TBProfiler
+# Extended Analysis – TBProfiler
 
 Because local installation of TBProfiler was unsuccessful due to dependency conflicts, resistance prediction and lineage analysis were performed using the TBProfiler web platform.
 
