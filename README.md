@@ -192,7 +192,7 @@ The high mapping rate and genome coverage indicate excellent sequencing quality 
 
 A total of **1,147 genomic variants** were identified relative to the H37Rv reference genome.  Variants were identified using FreeBayes and annotated using SnpEff.
 
-<img width="2816" height="1536" alt="variant distribution" src="https://github.com/user-attachments/assets/143131d8-be42-491a-bd10-063d396e1b2f" />
+<img width="1024" height="559" alt="variants distribution" src="https://github.com/user-attachments/assets/1f4ba0a4-e782-41df-851d-9dd95d033d5c" />
 
 ---
 
@@ -312,3 +312,5 @@ Research interests:
 This repository is intended for professional portfolio purposes.
 
 All sequencing data originate from publicly available repositories. Biological and clinical conclusions should be validated using complementary laboratory and epidemiological information.
+
+Workflow diagrams, summary illustrations, and selected graphical elements in this repository were generated with AI-assisted tools and subsequently reviewed and curated by the author. These visualizations are provided for communication and educational purposes only. All reported methods, analytical results, biological interpretations, and conclusions are based on actual bioinformatics analyses performed on the dataset described in this repository.
