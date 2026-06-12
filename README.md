@@ -1,4 +1,26 @@
+![Bioinformatics](https://img.shields.io/badge/Field-Bioinformatics-blue)
+![WGS](https://img.shields.io/badge/Analysis-WGS-green)
+![Tuberculosis](https://img.shields.io/badge/Organism-M.tuberculosis-red)
+![Linux](https://img.shields.io/badge/Linux-Bash-black)
+
 # Mycobacterium tuberculosis WGS Bioinformatics Pipeline
+
+## Project Highlights
+
+✔ Public NCBI SRA dataset analysis
+
+
+✔ End-to-end WGS workflow
+
+✔ 99.44% genome coverage
+
+✔ Mean depth 66.86×
+
+✔ 1,147 genomic variants identified
+
+✔ MDR-TB isolate detected
+
+✔ Lineage 4.1.1.3 (Euro-American)
 
 ## Overview
 
@@ -296,8 +318,11 @@ Potential future analyses include:
 
 Veterinarian | Microbiologist | Bioinformatics Enthusiast
 
-Research interests:
+LinkedIn: https://www.linkedin.com/in/ferdinandpcs/
 
+Email: ferdinand.prayogo.c@mail.ugm.ac.id | ferdinandvet@gmail.com
+
+Research interests:
 - Microbial genomics
 - Antimicrobial resistance
 - Veterinary microbiology
