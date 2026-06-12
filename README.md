@@ -143,6 +143,16 @@ The preprocessing step improved overall read quality while retaining more than 9
 
 ---
 
+## Quality Improvement
+
+<img width="2816" height="1536" alt="quality inmprovement" src="https://github.com/user-attachments/assets/994fda33-06e0-4255-abd8-375f5e81560a" />
+
+**Figure 2. Quality Improvement Before vs. After fastp Preprocessing (SRR37582408).** This comparative figure visualizes the significant enhancement in sequencing quality metrics achieved by the fastp cleaning step. The left column displays the raw input data (from SRR37582408_1.fastq and SRR37582408_2.fastq), while the right column shows the cleaned output (from sample_clean_1.fastq and sample_clean_2.fastq). The systematic analysis covers:
+1. **Per sequence quality scores:** Demonstrates a pronounced rightward shift in Phred score distribution, with an improved average Q30 percentage from 88.84% to 90.83%.
+2. **Per sequence GC content:** Validates effective bias reduction; the raw data ("Warning" status on R2) shows shoulders and non-canonical distributions, whereas the cleaned data exhibits smooth, symmetric curves tightly adhering to the theoretical M. tuberculosis H37Rv GC profile (65.17%).
+3. **Sequence Length Distribution:** Confirms standard length unification; the mixed length distribution ("Warning") in raw reads is consolidated into a single, clean peak at the expected insert size (e.g., 100bp) after removing adapter content and short sequences.
+---
+
 # Mapping Statistics
 
 Reference genome:
@@ -180,18 +190,9 @@ The high mapping rate and genome coverage indicate excellent sequencing quality 
 
 ## Variant Summary
 
-A total of **1,147 genomic variants** were identified relative to the H37Rv reference genome.
+A total of **1,147 genomic variants** were identified relative to the H37Rv reference genome.  Variants were identified using FreeBayes and annotated using SnpEff.
 
-| Variant Type | Count |
-|-------------|---------|
-| SNP | 988 |
-| MNP | 68 |
-| Insertions | 38 |
-| Deletions | 47 |
-| Mixed Variants | 6 |
-| Total | 1,147 |
-
-Variants were identified using FreeBayes and annotated using SnpEff.
+<img width="2816" height="1536" alt="variant distribution" src="https://github.com/user-attachments/assets/143131d8-be42-491a-bd10-063d396e1b2f" />
 
 ---
 
@@ -220,15 +221,7 @@ The isolate belongs to the globally distributed Euro-American lineage.
 
 ### Predicted Resistant Drugs and Resistance-Associated Mutasions
 
-| Drug | Prediction | Gene | Mutation |
-|----------|----------|----------|----------|
-| Rifampicin | Resistant | rpoB | Ser450Leu |
-| Rifapentine | Resistant | rpoB | Ser450Leu | Rifampicin / Rifapentine |
-| Isoniazid | Resistant | katG | Ser315Thr |
-| Ethambutol | Resistant | embB | Met306Ile | Ethambutol |
-| Pyrazinamide | Resistant | pncA | c.454delG |
-| Streptomycin | Resistant | rpsL | Lys43Arg |
-| Para-aminosalicylic acid | Resistant | folC | Glu40Gln |
+<img width="1408" height="768" alt="resistance" src="https://github.com/user-attachments/assets/3d88f013-388e-4720-b5e2-5dab2589d4df" />
 
 ---
 
