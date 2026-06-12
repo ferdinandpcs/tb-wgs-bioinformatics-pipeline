@@ -48,8 +48,7 @@ Public sequencing data were obtained from the NCBI Sequence Read Archive (SRA).
 
 # Bioinformatics Workflow
 
-```
-<img width="2816" height="1536" alt="workflow" src="https://github.com/user-attachments/assets/0882d929-4744-42ac-b2ba-7ffbb4f48647" />
+<img width="2816" height="1536" alt="workflow" src="https://github.com/user-attachments/assets/6476bc29-2ff5-4046-8e44-dbecca6a3155" />
 
 ---
 
